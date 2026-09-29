@@ -27,10 +27,8 @@ def main():
         screen.blit(pg.transform.flip(bg_img, True, False), [1600-bg_x, 0])
         screen.blit(bg_img, [3200-bg_x, 0])
         key_lst = pg.key.get_pressed()
-        key_dic = dict(zip([key_lst[pg.K_UP], key_lst[pg.K_DOWN], key_lst[pg.K_LEFT], key_lst[pg.K_RIGHT]], [(0, -1), (0, 1), (-1, 0), (2, 0)]))
-        for k, v in key_dic.items():
-            if k:
-                kouka_rct.move_ip(*v)
+    
+        kouka_rct.move_ip(2 * key_lst[pg.K_RIGHT]-key_lst[pg.K_LEFT], key_lst[pg.K_DOWN]-key_lst[pg.K_UP])
         kouka_rct.x = max(0, kouka_rct.x-1)
         screen.blit(kouka_img, kouka_rct)
         pg.display.update()
