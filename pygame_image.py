@@ -34,7 +34,8 @@ def main():
         if key_lst[pg.K_LEFT]:
             kouka_rct.move_ip(-1, 0)
         if key_lst[pg.K_RIGHT]:
-            kouka_rct.move_ip(1, 0)
+            kouka_rct.move_ip(2, 0)
+        kouka_rct.x = max(0, kouka_rct.x-1)
         screen.blit(kouka_img, kouka_rct)
         pg.display.update()
         tmr += 1
